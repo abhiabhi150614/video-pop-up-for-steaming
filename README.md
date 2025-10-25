@@ -745,6 +745,39 @@ sequenceDiagram
     API->>EXT: Social authentication
     EXT->>DB: Store connection data
 ```
+### Learning Flow Architecture
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant AI as Agentic AI
+    participant LP as Learning Path Service
+    participant Q as Quiz System
+    participant V as Voice Tutor
+    participant S as Social Integration
+    
+    U->>AI: Start Learning Journey
+    AI->>LP: Generate Personalized Path
+    LP->>U: Present Monthly Plan (30 days)
+    U->>LP: Begin Day Study
+    LP->>Q: Generate Adaptive Quiz
+    Q->>U: Assess Understanding (15 questions)
+    
+    alt Quiz Failed (Score < 70%)
+        Q->>AI: Analyze Problem Areas
+        AI->>LP: Regenerate Content
+        LP->>U: Enhanced Materials
+    else Quiz Passed
+        Q->>LP: Mark Day Complete
+        LP->>S: Share Achievement (LinkedIn/GitHub)
+        S->>U: Social Recognition
+    end
+    
+    U->>V: Request Voice Help
+    V->>AI: Get Learning Context
+    AI->>V: Personalized Response
+    V->>U: Context-Aware Tutoring
+```
 
 ### **Recruiter Platform Flow**
 
