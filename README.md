@@ -240,44 +240,44 @@ sequenceDiagram
 ### API Endpoint Architecture (Verified Implementation)
 
 ```mermaid
-graph TB
-    subgraph "Authentication Routes (auth.py)"
-        A1[POST /auth/google]
-        A2[GET /auth/google/callback]
-        A3[POST /auth/logout]
+flowchart TD
+    subgraph Auth["Authentication Routes"]
+        A1["POST /auth/google"]
+        A2["GET /auth/callback"]
+        A3["POST /auth/logout"]
     end
     
-    subgraph "Learning System (learning_plan.py)"
-        L1[POST /learning-plan/generate]
-        L2[GET /learning-plan]
-        L3[POST /learning-plan/{id}/start-day/{month}/{day}]
-        L4[POST /learning-plan/{id}/complete-day/{month}/{day}]
+    subgraph Learn["Learning System"]
+        L1["POST /learning-plan/generate"]
+        L2["GET /learning-plan"]
+        L3["POST /start-day"]
+        L4["POST /complete-day"]
     end
     
-    subgraph "Quiz System (quiz.py)"
-        Q1[POST /quiz/{plan_id}/{month}/{day}/generate]
-        Q2[GET /quiz/{plan_id}/{month}/{day}]
-        Q3[POST /quiz/{plan_id}/{month}/{day}/submit]
-        Q4[GET /available-quizzes]
+    subgraph Quiz["Quiz System"]
+        Q1["POST /quiz/generate"]
+        Q2["GET /quiz"]
+        Q3["POST /quiz/submit"]
+        Q4["GET /available-quizzes"]
     end
     
-    subgraph "Voice Integration (call_bot.py)"
-        V1[POST /call/initiate]
-        V2[GET /call/status/{call_sid}]
-        V3[POST /voice/webhook]
+    subgraph Voice["Voice Integration"]
+        V1["POST /call/initiate"]
+        V2["GET /call/status"]
+        V3["POST /voice/webhook"]
     end
     
-    subgraph "Social Features (chatbot.py)"
-        S1[POST /chatbot/message]
-        S2[GET /chatbot/history]
-        S3[POST /chatbot/clear-session]
+    subgraph Social["Social Features"]
+        S1["POST /chatbot/message"]
+        S2["GET /chatbot/history"]
+        S3["POST /chatbot/clear"]
     end
     
-    subgraph "Recruiter Platform (recruiter.py)"
-        R1[POST /recruiter/jobs]
-        R2[GET /recruiter/candidates]
-        R3[POST /recruiter/match-candidates]
-        R4[GET /recruiter/analytics]
+    subgraph Recruit["Recruiter Platform"]
+        R1["POST /recruiter/jobs"]
+        R2["GET /recruiter/candidates"]
+        R3["POST /recruiter/match"]
+        R4["GET /recruiter/analytics"]
     end
 ```
 
